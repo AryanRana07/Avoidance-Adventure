@@ -37,3 +37,33 @@ def detect_coll(player_pos, enemy_pos):
 		if(e_y >= p_y and e_y < (p_y + player_size)) or (p_y >= e_y and p_y < (e_y + enemy_size)):
 			return True
 	return False
+
+#Game loop
+while not game_over:
+	
+	for event in pygame.event.get():
+		
+		if event.type == pygame.QUIT:
+			sys.exit()
+
+		if event.type == pygame.KEYDOWN:
+			
+			x= player_pos[0]
+			y= player_pos[1]
+
+			if event.key == pygame.K_LEFT:
+				x -= player_size
+			elif event.key == pygame.K_RIGHT:
+				x += player_size
+
+			player_pos = [x,y]
+
+	screen.fill(BG_COLOR)
+
+#Updating pos of enemy
+	if enemy_pos[1] >= 0 and enemy_pos[1] < HEIGHT:
+		enemy_pos[1] += SPEED
+
+	else:
+		enemy_pos[0] = random.randint(0,WIDTH - enemy_size)
+		enemy_pos[1] = 0
