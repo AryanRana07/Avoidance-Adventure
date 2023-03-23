@@ -67,3 +67,14 @@ while not game_over:
 	else:
 		enemy_pos[0] = random.randint(0,WIDTH - enemy_size)
 		enemy_pos[1] = 0
+#Collision
+	# if detect_coll(player_pos,enemy_pos):
+	# 	game_over = True 
+		
+
+	pygame.draw.rect(screen, BLUE, (enemy_pos[0],enemy_pos[1] ,enemy_size ,enemy_size))
+	pygame.draw.rect(screen, RED, (player_pos[0],player_pos[1] ,player_size ,player_size))
+
+	clock.tick(30)
+
+	pygame.display.update()
