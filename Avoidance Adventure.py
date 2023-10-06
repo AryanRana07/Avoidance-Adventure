@@ -78,3 +78,4 @@ while not game_over:
 	clock.tick(30)
 
 	pygame.display.update()
+ 
